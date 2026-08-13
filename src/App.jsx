@@ -13,10 +13,9 @@ function App() {
   <h1>Hello</h1>
   <p>Hello There</p>
   <QueryDemo/>
+  <QueryDemo/>
 </div>
   ) 
 }
 
-
 export default App
- 

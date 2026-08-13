@@ -14,6 +14,7 @@ const fetchPosts=async()=>{
 const QueryDemo = () => {
 
 
+
     const {data:posts,isLoading,error}=useQuery({queryKey:["posts"],queryFn:fetchPosts})
     
   return (

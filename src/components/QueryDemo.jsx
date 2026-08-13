@@ -1,4 +1,6 @@
 import  { useState,useEffect } from 'react'
+import {useQuery} from '@tanstack/react-query'
+
 
 const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
@@ -12,7 +14,7 @@ const fetchPosts=async()=>{
 
 const QueryDemo = () => {
 
-const {data:posts,isLoading,error}=useQuery({queryKey:["posts"],queryFn:fetchPsots})
+const {data:posts,isLoading,error}=useQuery({queryKey:["posts"],queryFn:fetchPosts})
    
    
   return (

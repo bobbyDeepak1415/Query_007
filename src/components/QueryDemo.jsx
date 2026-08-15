@@ -17,8 +17,10 @@ const fetchData=async()=>{
 
 const QueryDemo = () => {
 
+  const [isLoadData,setIsLoadData]=useState(false)
+
   
-const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData})
+const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:isLoadData})
  
   
   return (
@@ -27,10 +29,12 @@ const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchDat
 {error && <p>Failed to fetch...</p>}
       <ul>
         {posts && posts.map((post)=>{
-          return <li key={post.id}>{post.title}</li>
+          return <li key={post.id}>{post.title}
+          </li>
         })}
 
       </ul>
+      <button>Get Data</button>
       
     </div>
   )

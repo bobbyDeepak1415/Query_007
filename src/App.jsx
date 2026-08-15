@@ -10,7 +10,6 @@ function App() {
 
 <div>
 
-  <h1>Hello</h1>
   <p>Hello There</p>
   <QueryDemo/>
 </div>

@@ -1,10 +1,12 @@
 
 import {useState,useEffect} from 'react'
 
-const url="https://jsonplacehol...der.typicode.com/posts?_limit=5"
+const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
 
 const QueryDemo = () => {
+
+  
 
   const [posts,setPosts]=useState([])
   const [isLoading,setIsLoading]=useState(true)

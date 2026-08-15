@@ -17,8 +17,10 @@ const fetchData=async()=>{
 
 const QueryDemo = () => {
 
+  const [isLoadData,setIsLoadData]=useState(false)
+
   
-const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData})
+const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:isLoadData})
  
   
   return (
@@ -31,6 +33,8 @@ const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchDat
         })}
 
       </ul>
+
+      <button onClick={()=>setIsLoadData(true)}>Get Data</button>
       
     </div>
   )

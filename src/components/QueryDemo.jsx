@@ -17,7 +17,7 @@ const fetchData=async()=>{
 const QueryDemo = () => {
 
   
-const {data,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData})
+const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData})
  
   
   return (
@@ -25,7 +25,7 @@ const {data,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData})
 {isLoading && <p>Loading...</p>}
 {error && <p>Failed to fetch...</p>}
       <ul>
-        {posts.map((post)=>{
+        {posts && posts.map((post)=>{
           return <li key={post.id}>{post.title}</li>
         })}
 

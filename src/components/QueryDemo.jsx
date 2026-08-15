@@ -4,7 +4,6 @@ import {useState,useEffect} from 'react'
 
 const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
-// Tanstack query is an asyncronous state management library that enables client side . it helps aus to fetch store and update data from apis without having to manually manage all of the loading and error and caching and refething logic
 
 
 const fetchData=async()=>{

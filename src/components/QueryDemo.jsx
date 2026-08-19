@@ -23,7 +23,7 @@ const QueryDemo = () => {
   
   const [loading,setLoading]=useState(false)
 
-  const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:loading})
+  const {data:posts,error,isLoading,refetch}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:loading})
 return (
       <div>
         <h2>Posts List</h2>

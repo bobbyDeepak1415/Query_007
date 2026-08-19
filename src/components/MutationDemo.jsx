@@ -11,6 +11,9 @@ const MutationDemo = () => {
 
 <input value={title} placeholder='Post title' onChange={(e)=>setTitle(e.target.value)}/>
 <textarea value={body} onChange={(e)=>setBody(e.target.value)} placeholder='Post body'/>
+
+<button>Create Post</button>
+
     </div>
   )
 }

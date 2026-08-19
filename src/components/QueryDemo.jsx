@@ -35,6 +35,7 @@ return (
           })}
         </ul>
         <button onClick={()=>setLoading(true)}>Fetch</button>
+        <button onClick={()=>refetch()}>reFetch</button>
     </div>
   )
 }

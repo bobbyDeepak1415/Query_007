@@ -10,7 +10,7 @@ const MutationDemo = () => {
         <h2>Mutations</h2>
 
 <input value={title} placeholder='Post title' onChange={(e)=>setTitle(e.target.value)}/>
-
+<textarea value={body} onChange={(e)=>setBody(e.target.value)} placeholder='Post body'/>
     </div>
   )
 }

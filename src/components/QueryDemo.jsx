@@ -17,6 +17,7 @@ const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
 }
 
+.
 
 const QueryDemo = () => {
   

@@ -18,22 +18,16 @@ const createPost=async(newPost)=>{
 
 const MutationDemo = () => {
 
-    const [title,setTitle]=useState("")
-    const [body,setBody]=useState("")
-
-    const {mutate}=useMutation({mutationFn:createPost})
+  const [title,setTitle]=useState("")
+  const [body,setBody]=useState("")
 
   return (
-    <div className='section'>
-        <h2>Mutations</h2>
-
-<input value={title} placeholder='Post title' onChange={(e)=>setTitle(e.target.value)}/>
-<textarea value={body} onChange={(e)=>setBody(e.target.value)} placeholder='Post body'/>
-
-<button onClick={()=>mutate({title,body,userId:1})}>Create Post</button>
-
+    <div>
+      <input value={title} onChange={(e)=>setTitle(e.target.value)} />
+      <textarea value={body} onChange={(e)=>setBody(e.target.value)}/>
     </div>
   )
+ 
 }
 
 export default MutationDemo

@@ -30,7 +30,7 @@ const MutationDemo = () => {
 <input value={title} placeholder='Post title' onChange={(e)=>setTitle(e.target.value)}/>
 <textarea value={body} onChange={(e)=>setBody(e.target.value)} placeholder='Post body'/>
 
-<button onClick={()=>mutate({title,userId,body})}>Create Post</button>
+<button onClick={()=>mutate({title,body,userId})}>Create Post</button>
 
     </div>
   )

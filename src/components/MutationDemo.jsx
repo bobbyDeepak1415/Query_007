@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 
-const createPost=async()=>{
-  const res=await fetch("https://jsonplaceholder.typicode.com/posts")
+const createPost=async(newPost)=>{
+  const res=await fetch("https://jsonplaceholder.typicode.com/posts",{
+    method:"POST",
+    body:JSON.stringify(newPost),
+    headers:{
+      "Content-type":"application/json; charset=UTF-8"
+    }
+  })
+
 }
 
 

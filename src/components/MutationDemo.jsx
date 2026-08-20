@@ -21,10 +21,13 @@ const MutationDemo = () => {
   const [title,setTitle]=useState("")
   const [body,setBody]=useState("")
 
+  const {mutate}=useMutation({mutationFn:createPost})
+
   return (
     <div>
-      <input value={title} onChange={(e)=>setTitle(e.target.value)} />
-      <textarea value={body} onChange={(e)=>setBody(e.target.value)}/>
+      <input value={title} onChange={(e)=>setTitle(e.target.value)} placeholder='post-title' />
+      <textarea value={body} onChange={(e)=>setBody(e.target.value)} placeholder='post-body'/>
+        <button onClick={()=>mutate({title,body,postId:1})}>Add Post</button>
     </div>
   )
  

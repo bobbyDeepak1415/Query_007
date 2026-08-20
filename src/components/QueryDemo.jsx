@@ -21,9 +21,9 @@ const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
 const QueryDemo = () => {
   
-  const [loading,setLoading]=useState(false)
+  const [loadData,setIsLoadData]=useState(false)
 
-  const {data:posts,error,isLoading,refetch}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:loading})
+  const {data:posts,error,isLoading,refetch}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:loadData})
 return (
       <div>
         <h2>Posts List</h2>
@@ -34,7 +34,7 @@ return (
             return <li key={post.id}>{post.title}</li>
           })}
         </ul>
-        <button onClick={()=>setLoading(true)}>Fetch</button>
+        <button onClick={()=>setIsLoadData(true)}>Fetch</button>
         <button onClick={()=>refetch()}>reFetch</button>
     </div>
   )

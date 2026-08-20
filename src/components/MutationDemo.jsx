@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
 
+const createPost=async()=>{
+  const res=await fetch("https://jsonplaceholder.typicode.com/posts")
+}
+
+
+
 const MutationDemo = () => {
 
     const [title,setTitle]=useState("")

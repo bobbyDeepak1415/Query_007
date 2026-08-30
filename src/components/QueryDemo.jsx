@@ -1,45 +1,24 @@
 import { useQuery } from "@tanstack/react-query"
-import { useState } from "react"
-
-
-const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
-
-
-
- const fetchData=async()=>{
-
-  const res=await fetch(url)
-  
-  
-  const response=await res.json()
-
-  return response
-
-}
-
-
-
 const QueryDemo = () => {
-  
-  const [isLoadData,setIsLoadData]=useState(false)
+   const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
-  const {data:posts,error,isLoading,refetch}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:isLoadData})
-  ....
-return (
-      <div>
-        <h2>Posts List</h2>
-        {isLoading&&<p>Loading...</p>}
-        {error && <p>Failed to fetch...</p>}
-        <ul>
-          {posts && posts.map((post)=>{
-            return <li key={post.id}>{post.title}</li>
-          })}
-        </ul>
-        <button onClick={()=>setIsLoadData(true)}>Fetch</button>
-        <button onClick={()=>refetch()}>reFetch</button>
-    </div>
-  )
-}
+   const getPosts=async()=>{
+     const res=await fetch(url)
+     const posts=await res.json()
+     return {posts}
+   }
+   const {data:posts,error}=useQuery({queryKey:["posts"],queryFn:getPosts})
 
-export default QueryDemo
 
+
+   return (
+     <div>
+       <h2>Post List:</h2>
+       {posts.map()}
+       <button onClick={()=>getPosts()}>Fetch </button>
+     </div>
+   )
+ }
+ 
+ export default QueryDemo
+ 

@@ -4,8 +4,7 @@ const QueryDemo = () => {
 
    const getPosts=async()=>{
      const res=await fetch(url)
-     const posts=await res.json()
-     return {posts}
+     return res.json()
    }
    const {data:posts,error}=useQuery({queryKey:["posts"],queryFn:getPosts})
 
@@ -14,8 +13,11 @@ const QueryDemo = () => {
    return (
      <div>
        <h2>Post List:</h2>
-       {posts.map()}
-       <button onClick={()=>getPosts()}>Fetch </button>
+       {error&& <p>Trouble fetching:{error.message}</p>}
+       {/* {posts.map((post)=>{
+        return <li key={post.id}>{post.title}</li>
+       })} */}
+       <button onClick={()=>getPosts()}>Fetch</button>
      </div>
    )
  }

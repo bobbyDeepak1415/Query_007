@@ -24,6 +24,7 @@ const QueryDemo = () => {
   const [isLoadData,setIsLoadData]=useState(false)
 
   const {data:posts,error,isLoading,refetch}=useQuery({queryKey:["posts"],queryFn:fetchData,enabled:isLoadData})
+  ....
 return (
       <div>
         <h2>Posts List</h2>

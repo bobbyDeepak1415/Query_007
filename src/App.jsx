@@ -1,7 +1,7 @@
 
 // import {useQuery,useMutation} from '@tanstack/react-query'
 
-// import MutationDemo from "./components/MutationDemo"
+import MutationDemo from "./components/MutationDemo"
 import QueryDemo from "./components/QueryDemo"
 
 function App() {

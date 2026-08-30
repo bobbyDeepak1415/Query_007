@@ -21,13 +21,25 @@ const MutationDemo = () => {
   const [title,setTitle]=useState("")
   const [body,setBody]=useState("")
 
-  const {mutate}=useMutation({mutationFn:createPost})
+  const {mutate,data:newPost,isPending,isError,error}=useMutation({mutationFn:createPost})
 
   return (
     <div>
       <input value={title} onChange={(e)=>setTitle(e.target.value)} placeholder='post-title' />
       <textarea value={body} onChange={(e)=>setBody(e.target.value)} placeholder='post-body'/>
         <button onClick={()=>mutate({title,body,postId:1})}>Add Post</button>
+
+{isPending && <p>Creating a post...</p>}
+{isError && <p>Something went wrong...:{error.message}</p>}
+
+
+{newPost && (
+  <div>
+    <h4>{newPost.title}</h4>
+    <p>{newPost.body}</p>
+  </div>
+)}
+
     </div>
   )
  

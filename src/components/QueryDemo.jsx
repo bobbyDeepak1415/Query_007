@@ -13,9 +13,9 @@ const QueryDemo = () => {
     
   }
 
-  const [fetch,setFetch]=useState(false)
+  const [fetched,setFetch]=useState(false)
 
-  const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:getPosts})
+  const {data:posts,error,isLoading,refetch}=useQuery({queryKey:["posts"],queryFn:getPosts,enabled:fetched})
   
 
 
@@ -23,10 +23,12 @@ const QueryDemo = () => {
      <div>
        <h2>Post List:</h2>
        {error && <p>Failed to fetch...</p>}
+       {isLoading && <p>Data Loading...</p>}
        {posts?.map((post)=>{
         return <li key={post.id}>{post.title}</li>
        })}
-       <button onClick={()=setFetch(true)}>Fetch</button>
+       <button onClick={()=>setFetch(true)}>Fetch</button>
+       <button onClick={()=>refetch()}>reFetch</button>
      </div>
    )
  }

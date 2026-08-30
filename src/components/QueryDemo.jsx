@@ -1,23 +1,30 @@
 import { useQuery } from "@tanstack/react-query"
+import { useEffect, useState } from "react"
 const QueryDemo = () => {
-   const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
+  const url="https://jsonplaceholder.typicode.com/posts?_limit=5"
 
-   const getPosts=async()=>{
-     const res=await fetch(url)
-     return res.json()
-   }
-   const {data:posts,error}=useQuery({queryKey:["posts"],queryFn:getPosts})
+  
 
+  const getPosts=async()=>{
+
+
+    const res=await fetch(url)
+    return res.json()
+    
+  }
+
+  const {data:posts,error,isLoading}=useQuery({queryKey:["posts"],queryFn:getPosts})
+  
 
 
    return (
      <div>
        <h2>Post List:</h2>
-       {error&& <p>Trouble fetching:{error.message}</p>}
-       {/* {posts.map((post)=>{
+       {error && <p>Failed to fetch...</p>}
+       {posts.map((post)=>{
         return <li key={post.id}>{post.title}</li>
-       })} */}
-       <button onClick={()=>getPosts()}>Fetch</button>
+       })}
+       <button>Fetch</button>
      </div>
    )
  }
